@@ -10,7 +10,7 @@ const router = Router();
 
 router.get('/', usuariosGet);
 
-router.status(201).post('/', usuariosPost);
+router.post('/', usuariosPost);
 
 router.put('/:id', usuariosPut);
 
