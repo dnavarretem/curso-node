@@ -15,13 +15,6 @@ const validarJWT = async (req = request, res = response, next) => {
   try {
     const {uid} = jwt.verify(token, process.env.PRIVATEPUBLICKEY);
     req.uid = uid;
-    const {id} = req.params;
-
-    if (uid !== id) {
-      return res.status(401).json({
-        msg: `El token no corresponde al usuario con id ${id}`
-      })
-    }
 
     const usuario = await Usuario.findById(uid);
 
